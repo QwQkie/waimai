@@ -39,21 +39,7 @@ public class UserController {
         iUserService.saveOrUpdate(user);
         return MessageUtil.success();
     }
-    @GetMapping("/deleteById")
-    @ApiOperation(value = "删除用户")
-    @ApiImplicitParam(name = "id" ,value = "用户id",paramType = "query",dataType = "int",required = true)
-    public Message deleteById(int id){
-        iUserService.deleteById(id);
-        return MessageUtil.success();
-    }
-    @GetMapping("/deleteBush")
-    @ApiOperation(value = "批量删除")
-    public Message deleteBush(int[] ids){
-        for (int id : ids) {
-            iUserService.deleteById(id);
-        }
-        return MessageUtil.success();
-    }
+
     @GetMapping("/search")
     @ApiOperation(value = "搜索")
     public Message search(String word){

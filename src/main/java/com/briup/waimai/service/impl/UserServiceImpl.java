@@ -1,9 +1,9 @@
 package com.briup.waimai.service.impl;
 
 
-import com.briup.waimai.bean.OderExample;
-import com.briup.waimai.bean.User;
-import com.briup.waimai.bean.UserExample;
+import com.briup.waimai.bean.*;
+import com.briup.waimai.mapper.CommentMapper;
+import com.briup.waimai.mapper.MoMapper;
 import com.briup.waimai.mapper.OderMapper;
 import com.briup.waimai.mapper.UserMapper;
 import com.briup.waimai.mapper.ex.UserEXMapper;
@@ -22,6 +22,10 @@ public class UserServiceImpl implements IUserService {
     private OderMapper oderMapper;
     @Autowired
     private UserEXMapper userEXMapper;
+    @Autowired
+    private CommentMapper commentMapper;
+    @Autowired
+    private MoMapper moMapper;
     @Override
     public List<User> findAll() throws RuntimeException {
         return userMapper.selectByExample(new UserExample());
@@ -41,14 +45,7 @@ public class UserServiceImpl implements IUserService {
         }
     }
 
-    @Override
-    public void deleteById(int id) throws RuntimeException {
-        OderExample example=new OderExample();
-        example.createCriteria().andUserIdEqualTo(id);
-        oderMapper.deleteByExample(example);
-        userMapper.deleteByPrimaryKey(id);
 
-    }
 
     @Override
     public List<User> search(String word) throws RuntimeException {
