@@ -6,6 +6,16 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="description" jdbcType="VARCHAR" property="description" />
   </resultMap>
+
+  <select id="findAll" resultType="com.briup.waimai.bean.Category">
+        select * from XCategory
+    </select>
+  <select id="search" resultType="com.briup.waimai.bean.Category">
+        select * from XCategory where name like #{key}
+    </select>
+
+
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
