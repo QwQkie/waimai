@@ -3,6 +3,8 @@ package com.briup.waimai.mapper;
 import com.briup.waimai.bean.Menu;
 import com.briup.waimai.bean.MenuExample;
 import java.util.List;
+
+import com.briup.waimai.bean.ex.MenuEX;
 import org.apache.ibatis.annotations.Param;
 
 public interface MenuMapper {
@@ -27,4 +29,11 @@ public interface MenuMapper {
     int updateByPrimaryKeySelective(Menu record);
 
     int updateByPrimaryKey(Menu record);
+
+    void deleteById(int id);
+
+    List<Menu> search(String key);
+    Menu findById(int id);
+
+    List<MenuEX> findAll2();
 }
