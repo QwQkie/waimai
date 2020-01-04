@@ -2,14 +2,12 @@ package com.briup.waimai.bean;
 
 import java.io.Serializable;
 
-public class Comment implements Serializable {
+public class Mo implements Serializable {
     private Integer id;
 
-    private Integer userId;
+    private Integer menuId;
 
     private Integer oderId;
-
-    private String description;
 
     private static final long serialVersionUID = 1L;
 
@@ -21,12 +19,12 @@ public class Comment implements Serializable {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getMenuId() {
+        return menuId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setMenuId(Integer menuId) {
+        this.menuId = menuId;
     }
 
     public Integer getOderId() {
@@ -37,14 +35,6 @@ public class Comment implements Serializable {
         this.oderId = oderId;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -52,9 +42,8 @@ public class Comment implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", userId=").append(userId);
+        sb.append(", menuId=").append(menuId);
         sb.append(", oderId=").append(oderId);
-        sb.append(", description=").append(description);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

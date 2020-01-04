@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.briup.waimai.mapper.CommentMapper">
-  <resultMap id="BaseResultMap" type="com.briup.waimai.bean.Comment">
+<mapper namespace="com.briup.waimai.mapper.MoMapper">
+  <resultMap id="BaseResultMap" type="com.briup.waimai.bean.Mo">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="User_id" jdbcType="INTEGER" property="userId" />
-    <result column="Oder_id" jdbcType="INTEGER" property="oderId" />
-    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="menu_id" jdbcType="INTEGER" property="menuId" />
+    <result column="oder_id" jdbcType="INTEGER" property="oderId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,15 +65,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, User_id, Oder_id, description
+    id, menu_id, oder_id
   </sql>
-  <select id="selectByExample" parameterType="com.briup.waimai.bean.CommentExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.briup.waimai.bean.MoExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from XComment
+    from Xmo
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,76 +84,67 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from XComment
+    from Xmo
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from XComment
+    delete from Xmo
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.briup.waimai.bean.CommentExample">
-    delete from XComment
+  <delete id="deleteByExample" parameterType="com.briup.waimai.bean.MoExample">
+    delete from Xmo
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.briup.waimai.bean.Comment">
-    insert into XComment (id, User_id, Oder_id, 
-      description)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{oderId,jdbcType=INTEGER}, 
-      #{description,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.briup.waimai.bean.Mo">
+    insert into Xmo (id, menu_id, oder_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER}, #{oderId,jdbcType=INTEGER}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.briup.waimai.bean.Comment">
-    insert into XComment
+  <insert id="insertSelective" parameterType="com.briup.waimai.bean.Mo">
+    insert into Xmo
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="userId != null">
-        User_id,
+      <if test="menuId != null">
+        menu_id,
       </if>
       <if test="oderId != null">
-        Oder_id,
-      </if>
-      <if test="description != null">
-        description,
+        oder_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+      <if test="menuId != null">
+        #{menuId,jdbcType=INTEGER},
       </if>
       <if test="oderId != null">
         #{oderId,jdbcType=INTEGER},
       </if>
-      <if test="description != null">
-        #{description,jdbcType=VARCHAR},
-      </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.briup.waimai.bean.CommentExample" resultType="java.lang.Long">
-    select count(*) from XComment
+  <select id="countByExample" parameterType="com.briup.waimai.bean.MoExample" resultType="java.lang.Long">
+    select count(*) from Xmo
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update XComment
+    update Xmo
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.userId != null">
-        User_id = #{record.userId,jdbcType=INTEGER},
+      <if test="record.menuId != null">
+        menu_id = #{record.menuId,jdbcType=INTEGER},
       </if>
       <if test="record.oderId != null">
-        Oder_id = #{record.oderId,jdbcType=INTEGER},
-      </if>
-      <if test="record.description != null">
-        description = #{record.description,jdbcType=VARCHAR},
+        oder_id = #{record.oderId,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -162,35 +152,30 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update XComment
+    update Xmo
     set id = #{record.id,jdbcType=INTEGER},
-      User_id = #{record.userId,jdbcType=INTEGER},
-      Oder_id = #{record.oderId,jdbcType=INTEGER},
-      description = #{record.description,jdbcType=VARCHAR}
+      menu_id = #{record.menuId,jdbcType=INTEGER},
+      oder_id = #{record.oderId,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.briup.waimai.bean.Comment">
-    update XComment
+  <update id="updateByPrimaryKeySelective" parameterType="com.briup.waimai.bean.Mo">
+    update Xmo
     <set>
-      <if test="userId != null">
-        User_id = #{userId,jdbcType=INTEGER},
+      <if test="menuId != null">
+        menu_id = #{menuId,jdbcType=INTEGER},
       </if>
       <if test="oderId != null">
-        Oder_id = #{oderId,jdbcType=INTEGER},
-      </if>
-      <if test="description != null">
-        description = #{description,jdbcType=VARCHAR},
+        oder_id = #{oderId,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.briup.waimai.bean.Comment">
-    update XComment
-    set User_id = #{userId,jdbcType=INTEGER},
-      Oder_id = #{oderId,jdbcType=INTEGER},
-      description = #{description,jdbcType=VARCHAR}
+  <update id="updateByPrimaryKey" parameterType="com.briup.waimai.bean.Mo">
+    update Xmo
+    set menu_id = #{menuId,jdbcType=INTEGER},
+      oder_id = #{oderId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

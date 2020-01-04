@@ -3,14 +3,14 @@ package com.briup.waimai.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommentExample {
+public class MoExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public CommentExample() {
+    public MoExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -164,193 +164,123 @@ public class CommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIsNull() {
-            addCriterion("User_id is null");
+        public Criteria andMenuIdIsNull() {
+            addCriterion("menu_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIsNotNull() {
-            addCriterion("User_id is not null");
+        public Criteria andMenuIdIsNotNull() {
+            addCriterion("menu_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
-            addCriterion("User_id =", value, "userId");
+        public Criteria andMenuIdEqualTo(Integer value) {
+            addCriterion("menu_id =", value, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
-            addCriterion("User_id <>", value, "userId");
+        public Criteria andMenuIdNotEqualTo(Integer value) {
+            addCriterion("menu_id <>", value, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
-            addCriterion("User_id >", value, "userId");
+        public Criteria andMenuIdGreaterThan(Integer value) {
+            addCriterion("menu_id >", value, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("User_id >=", value, "userId");
+        public Criteria andMenuIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("menu_id >=", value, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
-            addCriterion("User_id <", value, "userId");
+        public Criteria andMenuIdLessThan(Integer value) {
+            addCriterion("menu_id <", value, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
-            addCriterion("User_id <=", value, "userId");
+        public Criteria andMenuIdLessThanOrEqualTo(Integer value) {
+            addCriterion("menu_id <=", value, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
-            addCriterion("User_id in", values, "userId");
+        public Criteria andMenuIdIn(List<Integer> values) {
+            addCriterion("menu_id in", values, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
-            addCriterion("User_id not in", values, "userId");
+        public Criteria andMenuIdNotIn(List<Integer> values) {
+            addCriterion("menu_id not in", values, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
-            addCriterion("User_id between", value1, value2, "userId");
+        public Criteria andMenuIdBetween(Integer value1, Integer value2) {
+            addCriterion("menu_id between", value1, value2, "menuId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("User_id not between", value1, value2, "userId");
+        public Criteria andMenuIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("menu_id not between", value1, value2, "menuId");
             return (Criteria) this;
         }
 
         public Criteria andOderIdIsNull() {
-            addCriterion("Oder_id is null");
+            addCriterion("oder_id is null");
             return (Criteria) this;
         }
 
         public Criteria andOderIdIsNotNull() {
-            addCriterion("Oder_id is not null");
+            addCriterion("oder_id is not null");
             return (Criteria) this;
         }
 
         public Criteria andOderIdEqualTo(Integer value) {
-            addCriterion("Oder_id =", value, "oderId");
+            addCriterion("oder_id =", value, "oderId");
             return (Criteria) this;
         }
 
         public Criteria andOderIdNotEqualTo(Integer value) {
-            addCriterion("Oder_id <>", value, "oderId");
+            addCriterion("oder_id <>", value, "oderId");
             return (Criteria) this;
         }
 
         public Criteria andOderIdGreaterThan(Integer value) {
-            addCriterion("Oder_id >", value, "oderId");
+            addCriterion("oder_id >", value, "oderId");
             return (Criteria) this;
         }
 
         public Criteria andOderIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("Oder_id >=", value, "oderId");
+            addCriterion("oder_id >=", value, "oderId");
             return (Criteria) this;
         }
 
         public Criteria andOderIdLessThan(Integer value) {
-            addCriterion("Oder_id <", value, "oderId");
+            addCriterion("oder_id <", value, "oderId");
             return (Criteria) this;
         }
 
         public Criteria andOderIdLessThanOrEqualTo(Integer value) {
-            addCriterion("Oder_id <=", value, "oderId");
+            addCriterion("oder_id <=", value, "oderId");
             return (Criteria) this;
         }
 
         public Criteria andOderIdIn(List<Integer> values) {
-            addCriterion("Oder_id in", values, "oderId");
+            addCriterion("oder_id in", values, "oderId");
             return (Criteria) this;
         }
 
         public Criteria andOderIdNotIn(List<Integer> values) {
-            addCriterion("Oder_id not in", values, "oderId");
+            addCriterion("oder_id not in", values, "oderId");
             return (Criteria) this;
         }
 
         public Criteria andOderIdBetween(Integer value1, Integer value2) {
-            addCriterion("Oder_id between", value1, value2, "oderId");
+            addCriterion("oder_id between", value1, value2, "oderId");
             return (Criteria) this;
         }
 
         public Criteria andOderIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("Oder_id not between", value1, value2, "oderId");
-            return (Criteria) this;
-        }
-
-        public Criteria andDescriptionIsNull() {
-            addCriterion("description is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDescriptionIsNotNull() {
-            addCriterion("description is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDescriptionEqualTo(String value) {
-            addCriterion("description =", value, "description");
-            return (Criteria) this;
-        }
-
-        public Criteria andDescriptionNotEqualTo(String value) {
-            addCriterion("description <>", value, "description");
-            return (Criteria) this;
-        }
-
-        public Criteria andDescriptionGreaterThan(String value) {
-            addCriterion("description >", value, "description");
-            return (Criteria) this;
-        }
-
-        public Criteria andDescriptionGreaterThanOrEqualTo(String value) {
-            addCriterion("description >=", value, "description");
-            return (Criteria) this;
-        }
-
-        public Criteria andDescriptionLessThan(String value) {
-            addCriterion("description <", value, "description");
-            return (Criteria) this;
-        }
-
-        public Criteria andDescriptionLessThanOrEqualTo(String value) {
-            addCriterion("description <=", value, "description");
-            return (Criteria) this;
-        }
-
-        public Criteria andDescriptionLike(String value) {
-            addCriterion("description like", value, "description");
-            return (Criteria) this;
-        }
-
-        public Criteria andDescriptionNotLike(String value) {
-            addCriterion("description not like", value, "description");
-            return (Criteria) this;
-        }
-
-        public Criteria andDescriptionIn(List<String> values) {
-            addCriterion("description in", values, "description");
-            return (Criteria) this;
-        }
-
-        public Criteria andDescriptionNotIn(List<String> values) {
-            addCriterion("description not in", values, "description");
-            return (Criteria) this;
-        }
-
-        public Criteria andDescriptionBetween(String value1, String value2) {
-            addCriterion("description between", value1, value2, "description");
-            return (Criteria) this;
-        }
-
-        public Criteria andDescriptionNotBetween(String value1, String value2) {
-            addCriterion("description not between", value1, value2, "description");
+            addCriterion("oder_id not between", value1, value2, "oderId");
             return (Criteria) this;
         }
     }
