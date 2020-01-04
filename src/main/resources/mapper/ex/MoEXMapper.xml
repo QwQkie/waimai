@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.waimai.mapper.ex.MoEXMapper">
+    <resultMap id="abc" type="com.briup.waimai.bean.ex.MoEX">
+        <id column="id" property="id"/>
+        <association property="menus" column="menu_id" select="selectMenu"/>
+    </resultMap>
+    <select id="find" resultMap="abc">
+        select m.*,o.* from Xmo m,XOder o where oder_id=#{oderid} and o.state="已完成"
+    </select>
+    <select id="selectMenu" resultType="com.briup.waimai.bean.Menu">
+        select * from XMenu where id=#{menu_id}
+    </select>
+</mapper>

@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.briup.waimai.mapper.CommentMapper">
   <resultMap id="BaseResultMap" type="com.briup.waimai.bean.Comment">
+    <id column="id" jdbcType="INTEGER" property="id" />
     <result column="User_id" jdbcType="INTEGER" property="userId" />
     <result column="Oder_id" jdbcType="INTEGER" property="oderId" />
     <result column="description" jdbcType="VARCHAR" property="description" />
@@ -65,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    User_id, Oder_id, description
+    id, User_id, Oder_id, description
   </sql>
   <select id="selectByExample" parameterType="com.briup.waimai.bean.CommentExample" resultMap="BaseResultMap">
     select
@@ -81,6 +82,16 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from XComment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from XComment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
   <delete id="deleteByExample" parameterType="com.briup.waimai.bean.CommentExample">
     delete from XComment
     <if test="_parameter != null">
@@ -88,14 +99,17 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.briup.waimai.bean.Comment">
-    insert into XComment (User_id, Oder_id, description
-      )
-    values (#{userId,jdbcType=INTEGER}, #{oderId,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}
-      )
+    insert into XComment (id, User_id, Oder_id, 
+      description)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{oderId,jdbcType=INTEGER}, 
+      #{description,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.briup.waimai.bean.Comment">
     insert into XComment
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
       <if test="userId != null">
         User_id,
       </if>
@@ -107,6 +121,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>
@@ -127,6 +144,9 @@
   <update id="updateByExampleSelective" parameterType="map">
     update XComment
     <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
       <if test="record.userId != null">
         User_id = #{record.userId,jdbcType=INTEGER},
       </if>
@@ -143,11 +163,34 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update XComment
-    set User_id = #{record.userId,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=INTEGER},
+      User_id = #{record.userId,jdbcType=INTEGER},
       Oder_id = #{record.oderId,jdbcType=INTEGER},
       description = #{record.description,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.briup.waimai.bean.Comment">
+    update XComment
+    <set>
+      <if test="userId != null">
+        User_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="oderId != null">
+        Oder_id = #{oderId,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.briup.waimai.bean.Comment">
+    update XComment
+    set User_id = #{userId,jdbcType=INTEGER},
+      Oder_id = #{oderId,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
