@@ -54,6 +54,7 @@
 		<table tableName="XComment" domainObjectName="Comment"></table>
 		<table tableName="XMenu" domainObjectName="Menu"></table>
 		<table tableName="XOder" domainObjectName="Oder"></table>
+        <table tableName="Xmo" domainObjectName="Mo"></table>
 		<table tableName="XUser" domainObjectName="User"></table>
 
 
