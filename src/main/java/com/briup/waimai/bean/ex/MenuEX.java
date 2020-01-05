@@ -1,8 +1,10 @@
 package com.briup.waimai.bean.ex;
 
 import com.briup.waimai.bean.Category;
+import com.briup.waimai.bean.Menu;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class MenuEX implements Serializable {
 
@@ -55,4 +57,5 @@ public class MenuEX implements Serializable {
     public void setCategory(Category category) {
         this.category = category;
     }
+
 }

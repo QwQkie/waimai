@@ -12,9 +12,7 @@
   </resultMap>
 
 
-  <select id="search" resultType="com.briup.waimai.bean.Menu">
-  select * from XMenu where name like #{key}
-  </select>
+
 
 
   <sql id="Example_Where_Clause">

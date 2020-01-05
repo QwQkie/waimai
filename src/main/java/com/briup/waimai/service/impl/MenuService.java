@@ -68,7 +68,7 @@ public class MenuService implements IMenuService {
             return findAll();
         } else {
             key = "%" + key + "%";
-            return menuMapper.search(key);
+            return menuEXMapper.search(key);
 
         }
 
