@@ -1,7 +1,9 @@
 package com.briup.waimai.service.impl;
 
 import com.briup.waimai.bean.Category;
+import com.briup.waimai.bean.ex.CategoryEX;
 import com.briup.waimai.mapper.CategoryMapper;
+import com.briup.waimai.mapper.ex.CategoryEXMapper;
 import com.briup.waimai.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,11 +13,13 @@ import java.util.List;
 public class CategoryServiceImpl implements ICategoryService {
     @Autowired
     private CategoryMapper categoryMapper;
+    @Autowired
+    private CategoryEXMapper categoryEXMapper;
 
 
     @Override
-    public List<Category> findAll() throws RuntimeException {
-        return categoryMapper.findAll();
+    public List<CategoryEX> findAll() throws RuntimeException {
+       return categoryEXMapper.findAll();
     }
 
     @Override
@@ -37,7 +41,7 @@ public class CategoryServiceImpl implements ICategoryService {
 }
 
     @Override
-    public List<Category> search(String key) throws RuntimeException {
+    public List<CategoryEX> search(String key) throws RuntimeException {
         key=key==null?"":key;
         if(key==null && "".equals(key)){
             return  findAll();
@@ -45,7 +49,7 @@ public class CategoryServiceImpl implements ICategoryService {
         else {
 
             key="%"+key+"%";
-            return categoryMapper.search(key);
+            return categoryEXMapper.search(key);
         }
     }
 }
