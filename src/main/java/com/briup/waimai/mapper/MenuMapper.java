@@ -32,6 +32,7 @@ public interface MenuMapper {
 
     void deleteById(int id);
 
+
     List<Menu> search(String key);
     Menu findById(int id);
 

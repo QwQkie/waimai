@@ -43,6 +43,7 @@ public class CategoryServiceImpl implements ICategoryService {
             return  findAll();
         }
         else {
+
             key="%"+key+"%";
             return categoryMapper.search(key);
         }
