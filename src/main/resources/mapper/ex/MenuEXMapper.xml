@@ -17,9 +17,7 @@
     <select id="search" resultType="com.briup.waimai.bean.Menu">
   select * from XMenu where name like #{key}
   </select>
-    <select id="deleteByPrimaryKey" resultType="com.briup.waimai.bean.Menu">
-  select * from XMenu where name like #{key}
-  </select>
+
     <select id="selectCategory" resultType="com.briup.waimai.bean.Category">
         select * from  XCategory where id = #{id}
     </select>

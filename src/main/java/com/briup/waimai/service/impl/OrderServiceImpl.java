@@ -1,8 +1,12 @@
 package com.briup.waimai.service.impl;
 
+import com.briup.waimai.bean.CommentExample;
+import com.briup.waimai.bean.MoExample;
 import com.briup.waimai.bean.Oder;
 import com.briup.waimai.bean.OderExample;
 import com.briup.waimai.bean.ex.OderEX;
+import com.briup.waimai.mapper.CommentMapper;
+import com.briup.waimai.mapper.MoMapper;
 import com.briup.waimai.mapper.OderMapper;
 import com.briup.waimai.mapper.ex.OderEXMapper;
 import com.briup.waimai.service.IOrderService;
@@ -17,6 +21,10 @@ public class OrderServiceImpl implements IOrderService {
     private OderMapper oderMapper;
     @Autowired
     private OderEXMapper oderEXMapper;
+    @Autowired
+    private CommentMapper commentMapper;
+    @Autowired
+    private MoMapper moMapper;
     @Override
     public List<Oder> selectAll() throws RuntimeException {
         OderExample example = new OderExample();
@@ -31,6 +39,12 @@ public class OrderServiceImpl implements IOrderService {
 
     @Override
     public void deleteById(int id) {
+        CommentExample example=new CommentExample();
+        MoExample example1 = new MoExample();
+        example1.createCriteria().andOderIdEqualTo(id);
+        example.createCriteria().andOderIdEqualTo(id);
+        moMapper.deleteByExample(example1);
+        commentMapper.deleteByExample(example);
         oderMapper.deleteByPrimaryKey(id);
     }
 

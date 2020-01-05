@@ -1,5 +1,6 @@
 package com.briup.waimai.bean.ex;
 
+import com.briup.waimai.bean.Menu;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -13,6 +14,8 @@ public class OderEX {
     private Double price;
 
     private String state;
+
+    private String  username;
 
     public Integer getId() {
         return id;
@@ -36,6 +39,14 @@ public class OderEX {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getState() {
