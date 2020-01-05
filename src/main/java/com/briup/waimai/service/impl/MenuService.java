@@ -54,6 +54,10 @@ public class MenuService implements IMenuService {
         menuMapper.deleteByPrimaryKey(id);
     }
 
+//    @Override
+//    public void add(Menu menu) throws RuntimeException{
+//        menuMapper.insert(menu);
+//    }
 
 
     @Override

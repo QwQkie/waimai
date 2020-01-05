@@ -66,5 +66,12 @@ public class menuController {
         List<Menu> list=menuService.search(key);
         return MessageUtil.success(list);
     }
+//    @PostMapping("/add")
+//    @ApiOperation(value = "添加")
+//    public Message add(Menu menu){
+//        menuService.add(menu);
+//        return MessageUtil.success();
+//
+//    }
 
 }
