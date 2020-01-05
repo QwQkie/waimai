@@ -14,7 +14,7 @@
 <select id="findAll1" resultMap="eee">
     select * from XMenu
 </select>
-    <select id="selectCactegory" resultType="com.briup.waimai.bean.Category">
+    <select id="selectCategory" resultType="com.briup.waimai.bean.Category">
         select * from  XCategory where id = #{id}
     </select>
 
