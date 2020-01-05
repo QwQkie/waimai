@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.waimai.mapper.ex.MenuEXMapper">
+<resultMap id="eee" type="com.briup.waimai.bean.ex.MenuEX">
+    <id column="id" property="id"></id>
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+<association property="category" column="id"
+             select="selectCategory"></association>
+
+</resultMap>
+
+<select id="findAll1" resultMap="eee">
+    select * from XMenu
+</select>
+    <select id="selectCactegory" resultType="com.briup.waimai.bean.Category">
+        select * from  XCategory where id = #{id}
+    </select>
+
+</mapper>
