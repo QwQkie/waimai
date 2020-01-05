@@ -1,11 +1,14 @@
 package com.briup.waimai.bean;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class Oder implements Serializable {
     private Integer id;
 
+@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date time;
 
     private Double price;
