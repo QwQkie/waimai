@@ -22,7 +22,7 @@ public class MonitorController {
     @Autowired
     private IMonitorService iMonitorService;
 
-    @ApiOperation(value = "根据ID查询订单")
+    @ApiOperation(value = "根据Id监控订单")
     @PostMapping("/selectOrder")
     public Message selectUser(int id){
         List<MonitorEX> list = iMonitorService.selectOrder(id);
