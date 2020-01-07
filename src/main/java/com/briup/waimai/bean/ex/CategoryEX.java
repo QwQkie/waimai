@@ -1,22 +1,24 @@
 package com.briup.waimai.bean.ex;
 
-import com.briup.waimai.bean.Category;
-import com.briup.waimai.bean.Menu;
-
 import java.io.Serializable;
-import java.util.List;
 
-public class MenuEX implements Serializable {
-
-    private Integer id;
+public class CategoryEX implements Serializable {
+    private  Integer id;
 
     private String name;
 
     private String description;
 
-    private Double price;
+    private static final long serialVersionUID = 1L;
 
-    private Category category;
+    @Override
+    public String toString() {
+        return "CategoryEX{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 
     public Integer getId() {
         return id;
@@ -42,20 +44,7 @@ public class MenuEX implements Serializable {
         this.description = description;
     }
 
-    public Double getPrice() {
-        return price;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
 }

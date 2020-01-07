@@ -2,6 +2,7 @@ package com.briup.waimai.web.controller;
 
 
 import com.briup.waimai.bean.Category;
+import com.briup.waimai.bean.ex.CategoryEX;
 import com.briup.waimai.service.ICategoryService;
 import com.briup.waimai.util.Message;
 import com.briup.waimai.util.MessageUtil;
@@ -21,46 +22,46 @@ import java.util.List;
 @Api(description = "菜系管理")
 public class CategoryController {
     @Autowired
-    private ICategoryService categoryService;
+    private ICategoryService iCategoryService;
 
     @GetMapping("/selectAll")
     @ApiOperation(value = "查询所有菜系")
     public Message selectAll() {
-        List<Category > categories = categoryService.findAll();
+        List<CategoryEX> categories = iCategoryService.findAll();
         return MessageUtil.success(categories);
     }
 
     @PostMapping("/add")
     @ApiOperation(value = "添加菜系")
     public Message add(Category category){
-        categoryService.addOrUpdate(category);
+        iCategoryService.addOrUpdate(category);
         return MessageUtil.success();
     }
     @GetMapping("/delete")
     @ApiOperation(value = "根据id删除菜系")
     @ApiImplicitParam(name = "id" ,value = "菜系id",paramType = "query",dataType = "int",required = true)
     public Message delete(int id){
-       categoryService.delete(id);
+      iCategoryService.delete(id);
         return MessageUtil.success();
     }
     @PostMapping("/update")
     @ApiOperation(value = "修改菜系")
     public Message update(Category category){
-        categoryService.addOrUpdate(category);
+        iCategoryService.addOrUpdate(category);
         return MessageUtil.success();
     }
 
     @GetMapping("/search")
     @ApiOperation(value ="搜索菜系" )
     public Message search(String key){
-        List<Category> list=categoryService.search(key);
+        List<CategoryEX> list=iCategoryService.search(key);
         return MessageUtil.success(list);
     }
     @GetMapping("/deleteBatch")
     @ApiOperation(value = "批量删除")
     public Message deleteBatch(int[] ids ){
         for (int id : ids){
-            categoryService.delete(id);
+           iCategoryService.delete(id);
         }
         return MessageUtil.success();
     }

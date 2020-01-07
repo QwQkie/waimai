@@ -30,11 +30,6 @@ public interface MenuMapper {
 
     int updateByPrimaryKey(Menu record);
 
-    void deleteById(int id);
 
 
-    List<Menu> search(String key);
-    Menu findById(int id);
-
-    List<MenuEX> findAll2();
 }

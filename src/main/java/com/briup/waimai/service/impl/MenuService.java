@@ -1,9 +1,10 @@
 package com.briup.waimai.service.impl;
 
-import com.briup.waimai.bean.Menu;
-import com.briup.waimai.bean.MenuExample;
+import com.briup.waimai.bean.*;
 import com.briup.waimai.bean.ex.MenuEX;
+import com.briup.waimai.mapper.CategoryMapper;
 import com.briup.waimai.mapper.MenuMapper;
+import com.briup.waimai.mapper.MoMapper;
 import com.briup.waimai.mapper.ex.MenuEXMapper;
 import com.briup.waimai.service.IMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,11 @@ public class MenuService implements IMenuService {
 
     @Autowired
     private MenuEXMapper menuEXMapper;
+    @Autowired
+    private CategoryMapper categoryMapper;
+    @Autowired
+    private MoMapper moMapper;
+
 
     @Override
     public List<Menu> findAll() throws RuntimeException {
@@ -51,6 +57,12 @@ public class MenuService implements IMenuService {
 
     @Override
     public void deleteById(int id) throws RuntimeException {
+       MoExample example=new MoExample();
+
+        example.createCriteria().andMenuIdEqualTo(id);
+
+
+        moMapper.deleteByExample(example);
         menuMapper.deleteByPrimaryKey(id);
     }
 
@@ -68,7 +80,7 @@ public class MenuService implements IMenuService {
             return findAll();
         } else {
             key = "%" + key + "%";
-            return menuMapper.search(key);
+            return menuEXMapper.search(key);
 
         }
 

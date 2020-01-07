@@ -1,31 +1,19 @@
 package com.briup.waimai.bean.ex;
 
-import com.briup.waimai.bean.Menu;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class OderEX {
+public class MonitorEX implements Serializable {
     private Integer id;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date time;
 
-    private Double price;
-
     private String state;
 
-    private String  username;
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    private String  address;
+    private Integer User_id;
 
     public Integer getId() {
         return id;
@@ -43,27 +31,19 @@ public class OderEX {
         this.time = time;
     }
 
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getState() {
         return state;
     }
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public Integer getUser_id() {
+        return User_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        User_id = user_id;
     }
 }

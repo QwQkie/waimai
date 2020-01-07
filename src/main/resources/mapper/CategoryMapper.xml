@@ -7,12 +7,7 @@
     <result column="description" jdbcType="VARCHAR" property="description" />
   </resultMap>
 
-  <select id="findAll" resultType="com.briup.waimai.bean.Category">
-        select * from XCategory
-    </select>
-  <select id="search" resultType="com.briup.waimai.bean.Category">
-        select * from XCategory where name like #{key}
-    </select>
+
 
 
 
