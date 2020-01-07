@@ -58,4 +58,10 @@ public class OrderServiceImpl implements IOrderService {
         List<OderEX> list = oderEXMapper.selectById(id);
         return list;
     }
+
+    @Override
+    public OderEX selectUser1(int id) {
+        OderEX oderEX = oderEXMapper.selectById1(id);
+        return oderEX;
+    }
 }

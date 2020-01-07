@@ -17,6 +17,16 @@ public class OderEX {
 
     private String  username;
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    private String  address;
+
     public Integer getId() {
         return id;
     }
