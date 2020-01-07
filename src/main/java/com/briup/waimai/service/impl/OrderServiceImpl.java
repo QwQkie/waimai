@@ -40,7 +40,8 @@ public class OrderServiceImpl implements IOrderService {
     @Override
     public void deleteById(int id) {
         CommentExample example=new CommentExample();
-        MoExample example1 = new MoExample();
+        MoExample example1 = new
+                MoExample();
         example1.createCriteria().andOderIdEqualTo(id);
         example.createCriteria().andOderIdEqualTo(id);
         moMapper.deleteByExample(example1);
