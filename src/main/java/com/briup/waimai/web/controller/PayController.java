@@ -9,6 +9,7 @@ import com.briup.waimai.config.AlipayConfig;
 import com.briup.waimai.service.IOrderService;
 import com.briup.waimai.service.IUserService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +30,7 @@ public class PayController {
     private IUserService iUserService;
     @GetMapping("/pay")
     @ApiOperation(value = "支付")
+    @ApiImplicitParam(name = "code",value = "订单编号" ,required = true,paramType = "query",dataType ="string" )
     public void pay( HttpServletResponse response,String code) throws ServletException, IOException {
 
         try {
