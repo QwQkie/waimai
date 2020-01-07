@@ -29,7 +29,7 @@ public class PayController {
     private IUserService iUserService;
     @GetMapping("/pay")
     @ApiOperation(value = "支付")
-    public void pay( HttpServletResponse response,int id) throws ServletException, IOException {
+    public void pay( HttpServletResponse response,String code) throws ServletException, IOException {
 
         try {
             AlipayClient alipayClient =
@@ -40,12 +40,12 @@ public class PayController {
 
             AlipayTradePayModel model =
                     new AlipayTradePayModel();
-            List<OderEX> orders = iOrderService.selectUser(id);
-            for (OderEX oder : orders) {
-                model.setOutTradeNo(oder.getId().toString());
-                model.setTotalAmount(oder.getPrice().toString());
-                model.setSubject("123");
-            }
+            OderEX oderEX = iOrderService.selectByCode(code);
+
+                model.setOutTradeNo(oderEX.getCode());
+                model.setTotalAmount(oderEX.getPrice().toString());
+                model.setSubject(oderEX.getUsername());
+
 
             // 订单描述
             model.setBody(System.currentTimeMillis()+"");

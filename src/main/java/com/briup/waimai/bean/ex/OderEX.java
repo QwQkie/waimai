@@ -16,6 +16,7 @@ public class OderEX {
     private String state;
 
     private String  username;
+    private String code;
 
     public String getAddress() {
         return address;
@@ -65,5 +66,13 @@ public class OderEX {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

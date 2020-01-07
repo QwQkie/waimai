@@ -11,4 +11,9 @@
         from XOder o,XUser u
         where  u.id=o.User_id and o.id=#{id}
     </select>
+    <select id="selectByCode" resultType="com.briup.waimai.bean.ex.OderEX">
+         select o.*,u.username as username
+        from XOder o,XUser u
+        where  u.id=o.User_id and o.code=#{code}
+    </select>
 </mapper>
