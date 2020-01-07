@@ -6,9 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 import javax.servlet.annotation.WebServlet;
-
-@SpringBootApplication
 @MapperScan("com.briup.waimai.mapper")
+@SpringBootApplication
 @ServletComponentScan
 public class WaimaiApplication {
 

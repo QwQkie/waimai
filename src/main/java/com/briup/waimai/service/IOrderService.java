@@ -11,4 +11,5 @@ public interface IOrderService {
     void deleteById(int id);
     void updateById(Oder oder);
     List<OderEX> selectUser(int id);
+    OderEX selectUser1(int id);
 }
