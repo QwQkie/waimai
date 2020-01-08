@@ -16,10 +16,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @RestController
 @Api(description = "支付管理")
@@ -40,8 +38,7 @@ public class PayController {
             AlipayTradePagePayRequest alipayRequest =
                     new AlipayTradePagePayRequest();
 
-            AlipayTradePayModel model =
-                    new AlipayTradePayModel();
+            AlipayTradePayModel model = new AlipayTradePayModel();
             OderEX oderEX = iOrderService.selectByCode(code);
 
                 model.setOutTradeNo(oderEX.getCode());

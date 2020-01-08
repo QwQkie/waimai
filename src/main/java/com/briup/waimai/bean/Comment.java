@@ -1,5 +1,7 @@
 package com.briup.waimai.bean;
 
+import org.springframework.web.bind.annotation.RequestBody;
+
 import java.io.Serializable;
 
 public class Comment implements Serializable {
@@ -10,6 +12,8 @@ public class Comment implements Serializable {
     private Integer oderId;
 
     private String description;
+
+
 
     private static final long serialVersionUID = 1L;
 
@@ -44,6 +48,9 @@ public class Comment implements Serializable {
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
     }
+
+
+
 
     @Override
     public String toString() {
