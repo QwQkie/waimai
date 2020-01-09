@@ -4,7 +4,7 @@
     <select id="selectById" resultType="com.briup.waimai.bean.ex.OderEX">
         select o.*,u.username as username,u.address as address
         from XOder o,XUser u
-        where  u.id=o.User_id and o.id=#{id}
+        where  u.id=o.User_id and o.User_id=#{id}
     </select>
     <select id="selectById1" resultType="com.briup.waimai.bean.ex.OderEX">
         select o.*,u.username as username,u.address as address
