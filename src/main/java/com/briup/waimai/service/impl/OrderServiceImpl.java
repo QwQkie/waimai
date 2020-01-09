@@ -64,4 +64,9 @@ public class OrderServiceImpl implements IOrderService {
         OderEX oderEX = oderEXMapper.selectById1(id);
         return oderEX;
     }
+
+    @Override
+    public OderEX selectByCode(String code) throws RuntimeException {
+        return oderEXMapper.selectByCode(code);
+    }
 }

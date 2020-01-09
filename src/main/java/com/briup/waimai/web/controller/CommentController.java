@@ -1,6 +1,7 @@
 package com.briup.waimai.web.controller;
 
 import com.briup.waimai.bean.Comment;
+import com.briup.waimai.bean.ex.CommentEX;
 import com.briup.waimai.bean.ex.MoEX;
 import com.briup.waimai.service.ICommentService;
 import com.briup.waimai.util.Message;
@@ -22,15 +23,21 @@ public class CommentController {
     @Autowired
     private ICommentService iCommentService;
     @GetMapping("/find")
-    @ApiOperation(value = "查询该用户已完成的订单")
-    public Message find(int oderid){
-        List<MoEX> moEXList = iCommentService.find(oderid);
-        return MessageUtil.success(moEXList);
+    @ApiOperation(value = "查询该用户已完成未评价的订单")
+    public Message find(int id){
+        List<CommentEX> list = iCommentService.find(id);
+        return MessageUtil.success(list);
     }
     @PostMapping("/add")
     @ApiOperation(value = "添加评论")
     public Message add(Comment comment){
         iCommentService.add(comment);
         return MessageUtil.success();
+    }
+    @GetMapping("/findAll")
+    @ApiOperation(value = "查看所有评价")
+    public Message findAll(){
+        List<CommentEX> all = iCommentService.findAll();
+        return MessageUtil.success(all);
     }
 }
