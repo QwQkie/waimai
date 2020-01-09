@@ -3,19 +3,22 @@
 <mapper namespace="com.briup.waimai.mapper.ex.MenuEXMapper">
 <resultMap id="eee" type="com.briup.waimai.bean.ex.MenuEX">
     <id column="id" property="id"></id>
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="description" jdbcType="VARCHAR" property="description" />
-    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="name" property="name" />
+    <result column="description"  property="description" />
+    <result column="price"  property="price" />
 <association property="category" column="id"
              select="selectCategory"></association>
 
+
 </resultMap>
+
 
 <select id="findAll1" resultMap="eee">
     select * from XMenu
 </select>
     <select id="search" resultType="com.briup.waimai.bean.Menu">
   select * from XMenu where name like #{key}
+
   </select>
 
     <select id="selectCategory" resultType="com.briup.waimai.bean.Category">
