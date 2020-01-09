@@ -16,4 +16,5 @@ public interface IMenuService {
 
     List<Menu> search(String key);
     List<MenuEX> findAllEX();
+
 }

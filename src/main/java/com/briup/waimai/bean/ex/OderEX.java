@@ -1,10 +1,12 @@
 package com.briup.waimai.bean.ex;
 
 import com.briup.waimai.bean.Menu;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
-
+@ApiModel
 public class OderEX {
     private Integer id;
 
@@ -16,6 +18,7 @@ public class OderEX {
     private String state;
 
     private String  username;
+    private String code;
 
     public String getAddress() {
         return address;
@@ -65,5 +68,13 @@ public class OderEX {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

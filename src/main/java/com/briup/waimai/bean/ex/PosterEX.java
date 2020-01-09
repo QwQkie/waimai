@@ -1,17 +1,27 @@
-package com.briup.waimai.bean;
+package com.briup.waimai.bean.ex;
 
-import java.io.Serializable;
+import com.briup.waimai.bean.Poster;
 
-public class Menu implements Serializable {
+public class PosterEX {
+
+
+
     private Integer id;
 
     private String name;
 
+    private Integer cell;
+
     private String description;
+    private Poster poster;
 
-    private Double price;
+    public Poster getPoster() {
+        return poster;
+    }
 
-    private Integer categoryId;
+    public void setPoster(Poster poster) {
+        this.poster = poster;
+    }
 
     private static final long serialVersionUID = 1L;
 
@@ -31,28 +41,20 @@ public class Menu implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
+    public Integer getCell() {
+        return cell;
+    }
+
+    public void setCell(Integer cell) {
+        this.cell = cell;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public Integer getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
     }
 
     @Override
@@ -63,9 +65,8 @@ public class Menu implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
+        sb.append(", cell=").append(cell);
         sb.append(", description=").append(description);
-        sb.append(", price=").append(price);
-        sb.append(", categoryId=").append(categoryId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

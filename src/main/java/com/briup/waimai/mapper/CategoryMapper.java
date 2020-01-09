@@ -3,11 +3,8 @@ package com.briup.waimai.mapper;
 import com.briup.waimai.bean.Category;
 import com.briup.waimai.bean.CategoryExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-@Mapper
 public interface CategoryMapper {
     long countByExample(CategoryExample example);
 
@@ -30,7 +27,4 @@ public interface CategoryMapper {
     int updateByPrimaryKeySelective(Category record);
 
     int updateByPrimaryKey(Category record);
-
-
-
 }

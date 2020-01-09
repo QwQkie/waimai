@@ -11,4 +11,5 @@ public interface ICategoryService {
     void  delete(int id) throws RuntimeException;
     List<CategoryEX> search(String key) throws RuntimeException;
 
+    void insert(Category category);
 }

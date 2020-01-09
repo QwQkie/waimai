@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class MenuService implements IMenuService {
+public class MenuServiceImpl implements IMenuService {
     @Autowired
     private MenuMapper menuMapper;
 

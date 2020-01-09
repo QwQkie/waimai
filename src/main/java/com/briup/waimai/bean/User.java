@@ -1,12 +1,8 @@
 package com.briup.waimai.bean;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 
 public class User implements Serializable {
-
     private Integer id;
 
     private String username;

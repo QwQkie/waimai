@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.waimai.mapper.ex.CommentEXMapper">
+    <select id="find" resultType="com.briup.waimai.bean.ex.CommentEX">
+       SELECT d.*
+      FROM XOder d
+      WHERE d.`User_id`=#{id} AND d.`state`="已完成" AND d.`cstate`="未评价";
+    </select>
+    <select id="findAll" resultType="com.briup.waimai.bean.ex.CommentEX">
+      SELECT c.`description`,m.*,e.*,d.*
+      FROM XComment c,Xmo m,XMenu e ,XOder d
+      WHERE 1=1
+      AND c.`Oder_id`=d.`id` AND d.`id`=m.`oder_id`
+      AND m.`menu_id`=e.`id`;
+
+    </select>
+</mapper>

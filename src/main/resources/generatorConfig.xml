@@ -3,6 +3,7 @@
   PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <!-- mybatis-generator的核心配置文件 -->
+
 <generatorConfiguration>
 
 	<classPathEntry
@@ -56,6 +57,7 @@
 		<table tableName="XOder" domainObjectName="Oder"></table>
         <table tableName="Xmo" domainObjectName="Mo"></table>
 		<table tableName="XUser" domainObjectName="User"></table>
+		<table tableName="XPoster" domainObjectName="Poster"></table>
 
 
 
