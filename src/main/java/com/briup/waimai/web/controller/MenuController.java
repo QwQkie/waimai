@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/menu")
 @Api(description = "菜单管理")
-public class menuController {
+public class MenuController {
 
     @Autowired
     private IMenuService menuService;

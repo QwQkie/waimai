@@ -19,7 +19,7 @@
   </select>
 
     <select id="selectCategory" resultType="com.briup.waimai.bean.Category">
-        select * from  XCategory where id = #{id}
+        select id from  XCategory where id = #{id}
     </select>
 
 </mapper>
