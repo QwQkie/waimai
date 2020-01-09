@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.briup.waimai.mapper.CategoryMapper">
-  <resultMap id="BaseResultMap" type="com.briup.waimai.bean.Category">
+<mapper namespace="com.briup.waimai.mapper.PosterMapper">
+  <resultMap id="BaseResultMap" type="com.briup.waimai.bean.Poster">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="cell" jdbcType="INTEGER" property="cell" />
     <result column="description" jdbcType="VARCHAR" property="description" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -65,15 +66,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, description
+    id, name, cell, description
   </sql>
-  <select id="selectByExample" parameterType="com.briup.waimai.bean.CategoryExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.briup.waimai.bean.PosterExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from XCategory
+    from XPoster
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -84,33 +85,36 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from XCategory
+    from XPoster
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from XCategory
+    delete from XPoster
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.briup.waimai.bean.CategoryExample">
-    delete from XCategory
+  <delete id="deleteByExample" parameterType="com.briup.waimai.bean.PosterExample">
+    delete from XPoster
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.briup.waimai.bean.Category">
-    insert into XCategory (id, name, description
-      )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}
-      )
+  <insert id="insert" parameterType="com.briup.waimai.bean.Poster">
+    insert into XPoster (id, name, cell, 
+      description)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{cell,jdbcType=INTEGER}, 
+      #{description,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.briup.waimai.bean.Category">
-    insert into XCategory
+  <insert id="insertSelective" parameterType="com.briup.waimai.bean.Poster">
+    insert into XPoster
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
       <if test="name != null">
         name,
+      </if>
+      <if test="cell != null">
+        cell,
       </if>
       <if test="description != null">
         description,
@@ -123,25 +127,31 @@
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
+      <if test="cell != null">
+        #{cell,jdbcType=INTEGER},
+      </if>
       <if test="description != null">
         #{description,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.briup.waimai.bean.CategoryExample" resultType="java.lang.Long">
-    select count(*) from XCategory
+  <select id="countByExample" parameterType="com.briup.waimai.bean.PosterExample" resultType="java.lang.Long">
+    select count(*) from XPoster
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update XCategory
+    update XPoster
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cell != null">
+        cell = #{record.cell,jdbcType=INTEGER},
       </if>
       <if test="record.description != null">
         description = #{record.description,jdbcType=VARCHAR},
@@ -152,19 +162,23 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update XCategory
+    update XPoster
     set id = #{record.id,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
+      cell = #{record.cell,jdbcType=INTEGER},
       description = #{record.description,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.briup.waimai.bean.Category">
-    update XCategory
+  <update id="updateByPrimaryKeySelective" parameterType="com.briup.waimai.bean.Poster">
+    update XPoster
     <set>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="cell != null">
+        cell = #{cell,jdbcType=INTEGER},
       </if>
       <if test="description != null">
         description = #{description,jdbcType=VARCHAR},
@@ -172,9 +186,10 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.briup.waimai.bean.Category">
-    update XCategory
+  <update id="updateByPrimaryKey" parameterType="com.briup.waimai.bean.Poster">
+    update XPoster
     set name = #{name,jdbcType=VARCHAR},
+      cell = #{cell,jdbcType=INTEGER},
       description = #{description,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

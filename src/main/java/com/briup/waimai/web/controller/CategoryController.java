@@ -2,6 +2,7 @@ package com.briup.waimai.web.controller;
 
 
 import com.briup.waimai.bean.Category;
+import com.briup.waimai.bean.Poster;
 import com.briup.waimai.bean.ex.CategoryEX;
 import com.briup.waimai.service.ICategoryService;
 import com.briup.waimai.util.Message;
@@ -31,10 +32,10 @@ public class CategoryController {
         return MessageUtil.success(categories);
     }
 
-    @PostMapping("/add")
     @ApiOperation(value = "添加菜系")
-    public Message add(Category category){
-        iCategoryService.addOrUpdate(category);
+    @PostMapping("/insert")
+    public Message insert(Category category){
+        iCategoryService.insert(category);
         return MessageUtil.success();
     }
     @GetMapping("/delete")

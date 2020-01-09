@@ -1,14 +1,11 @@
 package com.briup.waimai.bean;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.io.Serializable;
 import java.util.Date;
 
 public class Oder implements Serializable {
     private Integer id;
 
-@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date time;
 
     private Double price;
@@ -16,6 +13,12 @@ public class Oder implements Serializable {
     private String state;
 
     private Integer userId;
+
+    private String code;
+
+    private String cstate;
+
+    private Integer posterId;
 
     private static final long serialVersionUID = 1L;
 
@@ -59,6 +62,30 @@ public class Oder implements Serializable {
         this.userId = userId;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code == null ? null : code.trim();
+    }
+
+    public String getCstate() {
+        return cstate;
+    }
+
+    public void setCstate(String cstate) {
+        this.cstate = cstate == null ? null : cstate.trim();
+    }
+
+    public Integer getPosterId() {
+        return posterId;
+    }
+
+    public void setPosterId(Integer posterId) {
+        this.posterId = posterId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -70,6 +97,9 @@ public class Oder implements Serializable {
         sb.append(", price=").append(price);
         sb.append(", state=").append(state);
         sb.append(", userId=").append(userId);
+        sb.append(", code=").append(code);
+        sb.append(", cstate=").append(cstate);
+        sb.append(", posterId=").append(posterId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

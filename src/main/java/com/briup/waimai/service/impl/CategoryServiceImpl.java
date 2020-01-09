@@ -1,6 +1,7 @@
 package com.briup.waimai.service.impl;
 
 import com.briup.waimai.bean.Category;
+import com.briup.waimai.bean.Oder;
 import com.briup.waimai.bean.ex.CategoryEX;
 import com.briup.waimai.mapper.CategoryMapper;
 import com.briup.waimai.mapper.ex.CategoryEXMapper;
@@ -39,6 +40,10 @@ public class CategoryServiceImpl implements ICategoryService {
     public void delete(int id) throws RuntimeException {
          categoryMapper.deleteByPrimaryKey(id);
 }
+    @Override
+    public void insert(Category category) {
+        categoryMapper.insert(category);
+    }
 
     @Override
     public List<CategoryEX> search(String key) throws RuntimeException {

@@ -2,17 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.briup.waimai.mapper.ex.CommentEXMapper">
     <select id="find" resultType="com.briup.waimai.bean.ex.CommentEX">
-      SELECT m.*,e.*,d.*
-      FROM Xmo m,XMenu e ,XOder d
-      WHERE d.`User_id`=#{id}
-      AND d.`id`=m.`oder_id`AND m.menu_id=e.id AND
-      d.`state`="已完成" AND d.cstate="未评价" AND m.`oder_id`=d.`id`;
+       SELECT d.*
+      FROM XOder d
+      WHERE d.`User_id`=1 AND d.`state`="已完成" AND d.`cstate`="未评价";
     </select>
     <select id="findAll" resultType="com.briup.waimai.bean.ex.CommentEX">
-       SELECT c.`description`,m.*,e.*,d.*
+      SELECT c.`description`,m.*,e.*,d.*
       FROM XComment c,Xmo m,XMenu e ,XOder d
       WHERE 1=1
-      AND d.`id`=m.`oder_id`AND m.menu_id=e.id AND
-      d.`state`="已完成" AND d.cstate="已评价" AND m.`oder_id`=d.`id`;
+      AND c.`Oder_id`=d.`id` AND d.`id`=m.`oder_id`
+      AND m.`menu_id`=e.`id`;
+
     </select>
 </mapper>

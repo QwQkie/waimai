@@ -2,12 +2,12 @@ package com.briup.waimai.bean;
 
 import java.io.Serializable;
 
-public class Comment implements Serializable {
+public class Poster implements Serializable {
     private Integer id;
 
-    private Integer userId;
+    private String name;
 
-    private Integer oderId;
+    private Integer cell;
 
     private String description;
 
@@ -21,20 +21,20 @@ public class Comment implements Serializable {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public String getName() {
+        return name;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
-    public Integer getOderId() {
-        return oderId;
+    public Integer getCell() {
+        return cell;
     }
 
-    public void setOderId(Integer oderId) {
-        this.oderId = oderId;
+    public void setCell(Integer cell) {
+        this.cell = cell;
     }
 
     public String getDescription() {
@@ -52,8 +52,8 @@ public class Comment implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", userId=").append(userId);
-        sb.append(", oderId=").append(oderId);
+        sb.append(", name=").append(name);
+        sb.append(", cell=").append(cell);
         sb.append(", description=").append(description);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

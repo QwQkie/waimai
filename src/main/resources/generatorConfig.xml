@@ -57,6 +57,7 @@
 		<table tableName="XOder" domainObjectName="Oder"></table>
         <table tableName="Xmo" domainObjectName="Mo"></table>
 		<table tableName="XUser" domainObjectName="User"></table>
+		<table tableName="XPoster" domainObjectName="Poster"></table>
 
 
 
