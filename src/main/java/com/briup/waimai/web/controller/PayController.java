@@ -22,7 +22,8 @@ import java.util.List;
 
 @RestController
 @Api(description = "支付管理")
-public class PayController {
+public class
+ PayController {
     @Autowired
     private IOrderService iOrderService;
     @Autowired
