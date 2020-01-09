@@ -7,4 +7,5 @@ import java.util.List;
 public interface OderEXMapper {
     List<OderEX> selectById(int id);
     OderEX selectById1(int id);
+    OderEX selectByCode(String code);
 }

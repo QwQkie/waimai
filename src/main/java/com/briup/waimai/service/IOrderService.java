@@ -12,4 +12,5 @@ public interface IOrderService {
     void updateById(Oder oder);
     List<OderEX> selectUser(int id);
     OderEX selectUser1(int id);
+    OderEX selectByCode(String code) throws RuntimeException;
 }

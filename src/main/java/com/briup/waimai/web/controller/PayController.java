@@ -9,16 +9,15 @@ import com.briup.waimai.config.AlipayConfig;
 import com.briup.waimai.service.IOrderService;
 import com.briup.waimai.service.IUserService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @RestController
 @Api(description = "支付管理")
@@ -29,7 +28,8 @@ public class PayController {
     private IUserService iUserService;
     @GetMapping("/pay")
     @ApiOperation(value = "支付")
-    public void pay( HttpServletResponse response,int id) throws ServletException, IOException {
+    @ApiImplicitParam(name = "code",value = "订单编号" ,required = true,paramType = "query",dataType ="string" )
+    public void pay( HttpServletResponse response,String code) throws ServletException, IOException {
 
         try {
             AlipayClient alipayClient =
@@ -38,14 +38,13 @@ public class PayController {
             AlipayTradePagePayRequest alipayRequest =
                     new AlipayTradePagePayRequest();
 
-            AlipayTradePayModel model =
-                    new AlipayTradePayModel();
-            List<OderEX> orders = iOrderService.selectUser(id);
-            for (OderEX oder : orders) {
-                model.setOutTradeNo(oder.getId().toString());
-                model.setTotalAmount(oder.getPrice().toString());
-                model.setSubject("123");
-            }
+            AlipayTradePayModel model = new AlipayTradePayModel();
+            OderEX oderEX = iOrderService.selectByCode(code);
+
+                model.setOutTradeNo(oderEX.getCode());
+                model.setTotalAmount(oderEX.getPrice().toString());
+                model.setSubject(oderEX.getUsername());
+
 
             // 订单描述
             model.setBody(System.currentTimeMillis()+"");
