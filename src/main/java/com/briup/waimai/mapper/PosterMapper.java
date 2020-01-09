@@ -31,5 +31,7 @@ public interface PosterMapper {
     int updateByPrimaryKey(Poster record);
 
 
-    List<PosterEX> findAll();
+
+
+    List<Poster> findpp(int id);
 }

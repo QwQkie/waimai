@@ -47,4 +47,9 @@ private PosterEXMapper posterEXMapper;
     public void insert(Poster poster) {
         posterMapper.insert(poster);
     }
+
+    @Override
+    public List<Poster> findpp(int id) {
+        return posterEXMapper.findpp(id);
+    }
 }

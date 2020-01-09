@@ -4,7 +4,7 @@
     <select id="find" resultType="com.briup.waimai.bean.ex.CommentEX">
        SELECT d.*
       FROM XOder d
-      WHERE d.`User_id`=1 AND d.`state`="已完成" AND d.`cstate`="未评价";
+      WHERE d.`User_id`=#{id} AND d.`state`="已完成" AND d.`cstate`="未评价";
     </select>
     <select id="findAll" resultType="com.briup.waimai.bean.ex.CommentEX">
       SELECT c.`description`,m.*,e.*,d.*

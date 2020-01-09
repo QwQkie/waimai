@@ -61,5 +61,10 @@ public class PosterController {
         return MessageUtil.success(list);
     }
 
-
+    @GetMapping("/searchposter")
+    @ApiOperation(value = "根据订单id查询poster")
+    public Message findpp(int id){
+        List<Poster> list = iPosterService.findpp(id);
+        return MessageUtil.success(list);
+    }
 }

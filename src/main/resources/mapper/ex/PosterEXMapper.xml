@@ -201,5 +201,23 @@
 
 
 
+    <resultMap id="abc" type="com.briup.waimai.bean.ex.PosterEX">
+        <id column="id" property="id"/>
+
+
+        <association property="poster" column="Poster_id" select="findposter"/>
+
+    </resultMap>
+
+    <select id="findpp" resultMap="abc">
+        select * from XOder where id=#{id}
+    </select>
+
+
+    <select id="findposter" resultType="com.briup.waimai.bean.Poster">
+        select * from XPoster where id=#{id}
+    </select>
+
+
 
 </mapper>

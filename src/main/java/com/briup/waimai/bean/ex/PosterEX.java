@@ -1,5 +1,7 @@
 package com.briup.waimai.bean.ex;
 
+import com.briup.waimai.bean.Poster;
+
 public class PosterEX {
 
 
@@ -11,6 +13,15 @@ public class PosterEX {
     private Integer cell;
 
     private String description;
+    private Poster poster;
+
+    public Poster getPoster() {
+        return poster;
+    }
+
+    public void setPoster(Poster poster) {
+        this.poster = poster;
+    }
 
     private static final long serialVersionUID = 1L;
 

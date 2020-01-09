@@ -36,4 +36,5 @@ public interface PosterEXMapper {
     Poster search(int id);
 
 
+    List<Poster> findpp(int id);
 }

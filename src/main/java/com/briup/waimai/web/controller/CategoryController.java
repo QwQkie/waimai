@@ -53,7 +53,7 @@ public class CategoryController {
     }
 
     @GetMapping("/search")
-    @ApiOperation(value ="搜索菜系" )
+    @ApiOperation(value ="根据关键字搜索菜系" )
     public Message search(String key){
         List<CategoryEX> list=iCategoryService.search(key);
         return MessageUtil.success(list);

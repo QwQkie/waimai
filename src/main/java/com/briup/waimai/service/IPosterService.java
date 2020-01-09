@@ -1,8 +1,6 @@
 package com.briup.waimai.service;
 
-import com.briup.waimai.bean.Category;
 import com.briup.waimai.bean.Poster;
-import com.briup.waimai.bean.ex.CategoryEX;
 import com.briup.waimai.bean.ex.PosterEX;
 
 import java.util.List;
@@ -15,4 +13,6 @@ public interface IPosterService {
     Poster search(int id) throws RuntimeException;
 
     void insert(Poster poster);
+
+    List<Poster> findpp(int id);
 }
